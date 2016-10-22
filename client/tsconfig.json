@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es5", 
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "types": [
+            "node",
+            "handlebars",
+            "core-js"
+        ]
+    },
+    "include": [
+        "./src/ts/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

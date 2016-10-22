@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "es6", 
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "sourceMap": true,
+		"types": [
+			"node",
+			"express",
+			"jasmine",
+			"request"
+		],
+		"lib": [
+			"es2016"
+		]
+    },
+	"include": [
+        "./server/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+		"client/**/*.ts"
+    ]
+}

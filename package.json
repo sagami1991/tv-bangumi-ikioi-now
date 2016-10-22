@@ -1,0 +1,38 @@
+{
+  "name": "tv-bangumi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "gulp watch",
+    "build:prod": "gulp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^2.4.1",
+    "express": "^4.14.0",
+    "lodash": "^4.15.0",
+    "request": "^2.75.0",
+    "source-map-support": "^0.4.2",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.29",
+    "@types/express": "^4.0.30",
+    "@types/jasmine": "^2.2.33",
+    "@types/lodash": "^4.14.32",
+    "@types/node": "^6.0.31",
+    "@types/request": "0.0.31",
+    "@types/xml2js": "0.0.28",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.13.6",
+    "jasmine": "^2.4.1",
+    "tslint": "^3.14.0",
+    "typescript": "^2.0.0"
+  }
+}

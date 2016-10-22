@@ -1,0 +1,40 @@
+{
+  "name": "tv-bangumi-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --progress --colors --watch --config ./webpack.dev.js",
+    "build:prod": "webpack --progress --colors --config ./webpack.prod.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^2.4.1",
+    "handlebars": "^4.0.5",
+    "humane-js": "^3.2.2"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.29",
+    "@types/handlebars": "^3.0.28",
+    "@types/node": "^6.0.37",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.1",
+    "dateformat": "^1.0.12",
+    "expose-loader": "^0.7.1",
+    "file-loader": "^0.9.0",
+    "json-loader": "^0.5.4",
+    "lite-server": "^2.2.2",
+    "node-sass": "^3.8.0",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.8.2",
+    "tslint": "^3.14.0",
+    "typescript": "^2.0.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-merge": "^0.14.1"
+  }
+}
