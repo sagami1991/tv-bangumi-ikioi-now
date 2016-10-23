@@ -28,8 +28,7 @@ module.exports = {
 	plugins: [
 		new CopyWebpackPlugin([
 			{ from: 'src/index.html', to: 'index.html' },
-			{ from: 'src/loading.css', to: 'loading.css' },
-			{ from: 'src/assets', to: 'assets' },
+			{ from: 'src/resource', to: 'resource' }
 		]),
 		new DefinePlugin({
 			LAST_UPDATED: `"${dateFormat(new Date(),"yyyy/mm/dd HH:MM")}"`,

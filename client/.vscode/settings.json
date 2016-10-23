@@ -7,5 +7,6 @@
 		"**/*.js": { "when": "$(basename).ts" }
 	},
 	"tslint.configFile": "./tslint.json",
-	"typescript.tsdk": "node_modules\\typescript\\lib"
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"eslint.enable": false
 }
