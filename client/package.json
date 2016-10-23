@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "core-js": "^2.4.1",
+    "dateformat": "^1.0.12",
     "handlebars": "^4.0.5",
     "humane-js": "^3.2.2"
   },
@@ -21,7 +22,6 @@
     "@types/node": "^6.0.37",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
-    "dateformat": "^1.0.12",
     "expose-loader": "^0.7.1",
     "file-loader": "^0.9.0",
     "json-loader": "^0.5.4",
