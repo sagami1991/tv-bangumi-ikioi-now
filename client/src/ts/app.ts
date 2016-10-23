@@ -1,8 +1,9 @@
 require("expose?Handlebars!handlebars");
 require("../sass/main.scss")
+
 import {Test} from "./test";
 import {BangumiInfo} from "../../../server/share/interfaces" ;
-
+import dateFormat = require('dateformat');
 /**
  * MainApp
  */
@@ -21,7 +22,7 @@ class MainApp {
                     <td>
                         <img src="/resource/channel/{{id}}.png"></img>
                     </td>
-                    <td>{{beginDate}}</td>
+                    <td>{{dateformat beginDate "HH:mm"}}</td>
                     <td>{{endDate}}</td>
                     <td>{{title}}</td>
                     <td>{{commentCount}}</td>
@@ -32,13 +33,13 @@ class MainApp {
     `);
 
     public static init() {
-        new MainApp().displayBangumi();
+        const mainApp = new MainApp();
+        mainApp.setHandlebarsHelper();
+        mainApp.displayBangumi();
     }
 
-    private callTest() {
-        const test = new Test();
-        test.setMoji("testtesttest");
-        test.test();
+    private setHandlebarsHelper() {
+        Handlebars.registerHelper("dateformat", (date: Date, pattern: string) => dateFormat(date, pattern) );
     }
 
     /**
