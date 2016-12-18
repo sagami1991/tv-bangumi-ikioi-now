@@ -6,6 +6,12 @@ body {
     background-color: #fdfdfd;
     color: #2b2b2b;
 }
+
+.table-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .table {
     border-collapse: collapse;
 	border-spacing: 0px;
@@ -41,9 +47,4 @@ body {
 			}
 		}
 	}
-}
-
-.table-wrapper {
-    width: 800px;
-    margin: 0 auto;
 }

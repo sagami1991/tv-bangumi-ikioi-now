@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "build": "gulp watch",
-    "build:prod": "gulp"
+	"heroku-prebuild": "cd ./client && npm i && npm run build:prod",
+	"heroku-postbuild": "gulp",
+    "build": "gulp watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "6.3.0"
+  },
   "dependencies": {
     "core-js": "^2.4.1",
     "express": "^4.14.0",

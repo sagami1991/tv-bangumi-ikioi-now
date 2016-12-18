@@ -1,12 +1,9 @@
 require("expose?Handlebars!handlebars");
 require("../sass/main.scss")
 
-import {Test} from "./test";
 import {BangumiInfo} from "../../../server/share/interfaces" ;
 import dateFormat = require('dateformat');
-/**
- * MainApp
- */
+
 class MainApp {
     private static HTML = Handlebars.compile(`
     <table class="table">
@@ -32,39 +29,46 @@ class MainApp {
 				</tr>
 			{{/each}}
 		</tbody>
-    </table>
-    `);
+	</table>
+	`);
 
-    public static init() {
-        const mainApp = new MainApp();
-        mainApp.setHandlebarsHelper();
-        mainApp.displayBangumi();
-    }
+	private tableContainer: HTMLElement;
+	public static init() {
+		this.setHandlebarsHelper();
+		const mainApp = new MainApp();
+		mainApp.setContainer();
+		mainApp.displayBangumi();
+		mainApp.setInterval();
+	}
 
-    private setHandlebarsHelper() {
-        Handlebars.registerHelper("dateformat", (date: Date, pattern: string) => dateFormat(date, pattern) );
-        Handlebars.registerHelper("rowColor", (comment: number) => {
+	private static setHandlebarsHelper() {
+		Handlebars.registerHelper("dateformat", (date: Date, pattern: string) => dateFormat(date, pattern) );
+		Handlebars.registerHelper("rowColor", (comment: number) => {
 			const gb = 255 - Math.min(Math.ceil(comment / 400 * 255), 255);
 			return `background-color: rgba(255, ${gb}, ${gb}, 0.3);`;
 		});
     }
 
-    /**
-     * 番組表の表示
-     */
-    private displayBangumi() {
-        const xhr = new XMLHttpRequest();
+	private setContainer() {
+		this.tableContainer = <HTMLElement> document.querySelector('.table-container');
+	}
 
-        xhr.open('GET', '/api/bangumi');
-        xhr.send();
-        xhr.onload = () => {
-            const dataText = xhr.responseText;
-            let dataJson: BangumiInfo[] = JSON.parse(dataText);
-            dataJson.sort((before , after) => before.id - after.id);
-            const element = document.querySelector('.table-wrapper');
-            element.innerHTML = MainApp.HTML({bangumiList: dataJson});
-        }
-    }
+	private setInterval() {
+		setInterval(() => this.displayBangumi(), 60 * 1000);
+	}
+
+	/** 番組表の表示 */
+	private displayBangumi() {
+		const xhr = new XMLHttpRequest();
+		xhr.open('GET', '/api/bangumi');
+		xhr.send();
+		xhr.onload = () => {
+			const dataText = xhr.responseText;
+			let dataJson: BangumiInfo[] = JSON.parse(dataText);
+			dataJson.sort((before , after) => before.id - after.id);
+			this.tableContainer.innerHTML = MainApp.HTML({bangumiList: dataJson});
+		};
+	}
 }
 
 MainApp.init();
