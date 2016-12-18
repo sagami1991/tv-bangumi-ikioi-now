@@ -7,7 +7,8 @@
     "start": "node server/server.js",
 	"heroku-prebuild": "cd ./client && npm i && npm run build:prod",
 	"heroku-postbuild": "gulp",
-    "build": "gulp watch"
+    "build": "gulp watch",
+	"forever": "forever start server/server.js"
   },
   "keywords": [],
   "author": "",

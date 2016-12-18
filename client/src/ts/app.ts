@@ -1,7 +1,7 @@
 require("expose?Handlebars!handlebars");
 require("../sass/main.scss")
 
-import {BangumiInfo} from "../../../server/share/interfaces" ;
+import {BangumiInfo} from "./../../../server/share/interfaces" ;
 import dateFormat = require('dateformat');
 
 class MainApp {
@@ -22,8 +22,8 @@ class MainApp {
 					<td class="img">
 						<img src="/resource/channel/{{id}}.png"></img>
 					</td>
-					<td>{{dateformat beginDate "HH:mm"}}</td>
-					<td>{{dateformat endDate "HH:mm"}}</td>
+					<td>{{dateformat beginDate "HH:MM"}}</td>
+					<td>{{dateformat endDate "HH:MM"}}</td>
 					<td>{{title}}</td>
 					<td class="comment-count">{{commentCount}}</td>
 				</tr>
@@ -42,7 +42,7 @@ class MainApp {
 	}
 
 	private static setHandlebarsHelper() {
-		Handlebars.registerHelper("dateformat", (date: Date, pattern: string) => dateFormat(date, pattern) );
+		Handlebars.registerHelper("dateformat", (date: string, pattern: string) => dateFormat(new Date(date), pattern) );
 		Handlebars.registerHelper("rowColor", (comment: number) => {
 			const gb = 255 - Math.min(Math.ceil(comment / 400 * 255), 255);
 			return `background-color: rgba(255, ${gb}, ${gb}, 0.3);`;
