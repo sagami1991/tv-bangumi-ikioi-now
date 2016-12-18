@@ -1,3 +1,49 @@
+
+body {
+    font-family: "Yu Gothic", "Meirio";
+	font-weight: 500;
+    padding-top: 30px;
+    background-color: #fdfdfd;
+    color: #2b2b2b;
+}
 .table {
-    border: 2px #ff0000 solid;
+    border-collapse: collapse;
+	border-spacing: 0px;
+    tr {
+        border-bottom: 1px solid #a5a5a5;
+		td, th {
+			padding: 8px 6px;
+		}
+    }
+	thead {
+		th {
+			font-size: 16px;
+			text-align: left;
+			&.center {
+				text-align: center;
+			}
+		}
+	}
+	tbody {
+		td {
+			font-size: 14px;
+			&.img {
+				text-align: center;
+				img {
+					border-radius: 5%;
+					box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
+				}
+			}
+			&.comment-count {
+				font-weight: 600;
+				font-size: 16px;
+				text-align: center;
+			}
+		}
+	}
+}
+
+.table-wrapper {
+    width: 800px;
+    margin: 0 auto;
 }
